@@ -3,16 +3,9 @@ import cart from './cart.jpg'
 import img from './image.jpg';
 
 function Modal(props) {
-    // console.log('item', props.item)
     const [arr, setArr] = useState([])
     useEffect(() => {
         let tempArr = [...props.item]
-        // tempArr = tempArr.map((item) => {
-        //     if (!item.hasOwnProperty('quantity')) {
-        //         item['quantity'] = 1;
-        //     }
-        //     return item;
-        // })
         setArr(tempArr)
     }, [props.item])
 
@@ -22,7 +15,6 @@ function Modal(props) {
         setSubT(0);
         for (let i = 0; i < arr.length; i++) {
             setSubT(pre => pre + (arr[i].price * arr[i].quantity))
-            console.log('subtotal', subT)
         }
     }, [arr])
 
@@ -53,7 +45,6 @@ function Modal(props) {
             <div className="modal-container">
                 <button onClick={() => props.closeModal(false)} className="x">
                     X
-
                 </button>
                 <div className="title">
                     <h4> Cart</h4>
@@ -83,7 +74,8 @@ function Modal(props) {
                                             X
 
                                         </button>
-                                        <div>{value.currencyFormat}{(value.price * value.quantity).toFixed(2)}</div>
+                                        <div>{value.currencyFormat}{(value.price * value.quantity
+                                            ).toFixed(2)}</div>
                                         <div>
                                             <button onClick={() => { handleMinus(index) }}>-</button>
                                             <button onClick={() => { handlePlus(index) }}>+</button>

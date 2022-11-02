@@ -13,15 +13,11 @@ function ListItems(props) {
             let index = cloneCart.indexOf(value)
             cloneCart[index].quantity += 1;
             setCart(cloneCart)
-            console.log('cart', cloneCart)
         }
         else {
             cloneCart.push(value)
             setCart(cloneCart)
         }
-
-
-        console.log('ListItems', cloneCart, 'cart=', cart)
     }
 
     return (<div className='main-list'>

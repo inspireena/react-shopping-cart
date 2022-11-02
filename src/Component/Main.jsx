@@ -19,16 +19,13 @@ function Main() {
                 })
                 setItems(itemss)
                 setInitialItems(itemss)
-                console.log('items', itemss)
 
-                // console.log('response',response );
             })
             .catch((error) => {
                 // handle error
                 console.log(error);
             })
     }, [])
-    // console.log('items',items)
 
     return (
         <div style={{ display: 'flex' }}>
