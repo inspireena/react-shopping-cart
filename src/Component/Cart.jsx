@@ -6,7 +6,6 @@ function First(props) {
     const[openModal , setOpenModal] = useState(false);
 
     const handleCart =()=>{
-       console.log(props.selectItem)
        setOpenModal(true)
     }
     

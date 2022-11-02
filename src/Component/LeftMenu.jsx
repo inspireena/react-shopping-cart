@@ -1,7 +1,6 @@
 function LeftMenu(props) {
     const availableSizes = ['XS', 'S', 'M', 'ML', 'L', 'XL', 'XXL'];
     const arr = props.listItems;
-    // console.log('arr=', arr)
     const handleClick = (size) => {
         let filterArr = [];
         for (let i = 0; i < arr.length; i++) {
@@ -11,7 +10,6 @@ function LeftMenu(props) {
             }
         }
         props.setItems([...filterArr])
-        console.log('filter array', filterArr, 'arr', arr)
     }
     return (
         <div style={{textAlign: 'center'}}>
