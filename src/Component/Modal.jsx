@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import cart from './cart.jpg'
-import img from './image.jpg';
+import img from './image1.jpg';
 
 function Modal(props) {
     const [arr, setArr] = useState([])
@@ -39,6 +39,11 @@ function Modal(props) {
         props.setCart(newArr)
 
     }
+    let sum = 0;
+    for (let i = 0; i< props.item.length; i++) {
+      sum += props.item[i].quantity
+       
+    }
 
     return (
         <div className="modal-backgraound">
@@ -49,7 +54,7 @@ function Modal(props) {
                 <div className="title">
                     <h4> Cart</h4>
                     <img src={cart} alt="error" className='cart-2' />
-                    {props.item.length}
+                    {sum}
                 </div>
                 <div className="body">
                     your item is here

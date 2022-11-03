@@ -1,10 +1,25 @@
-import img from './image.jpg';
+
+import img2 from './image2.JPG';
+import img from './image1.jpg';
+
 import Cart from "./Cart";
 import { useState } from 'react';
-import Modal from './Modal';
+import Button from 'react-bootstrap/Button';
 
 function ListItems(props) {
     const [cart, setCart] = useState([])
+    //handle over
+    const handleOver = (index) => {
+        const cloneList = [...props.listItems]
+        cloneList[index].image = img2
+        props.setItems([...cloneList])
+    }
+    //handle out
+    const handleOut = (index) => {
+        const cloneList = [...props.listItems]
+        cloneList[index].image = img
+        props.setItems([...cloneList])
+    }
 
     const handleClick = (value) => {
 
@@ -26,12 +41,12 @@ function ListItems(props) {
         {props.listItems && props.listItems.length > 0 &&
             props.listItems.map((value, index) => {
                 return (<div key={index} className="list-item">
-                    <img src={img} width={200} />
+                    <img src={value.image} width={200} onMouseOver={() => handleOver(index)} onMouseOut={() => handleOut(index)} />
                     <div>{value.availableSizes.join(', ')}</div>
                     <div > {value.title}</div>
                     <div>{value.style}</div>
                     <div>{value.currencyFormat}{value.price}</div>
-                    <button onClick={() => handleClick(value)}> ADD TO CART</button>
+                    <button className='addtocart' onClick={() => handleClick(value)}>Add To Cart</button>
 
                 </div>)
             })

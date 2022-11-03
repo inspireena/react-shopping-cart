@@ -38,12 +38,13 @@
 }
 .list-item{
   
-  border: 1px solid gray;
-  /* width: 200px; */
+  border: 0px solid gray;
+  /* width: 35px; */
   padding: 10px;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
-  flex: 0 0 33.333%;
+  flex: 0 0 29.333%;
+  /* margin-left: 77px; */
 }
 .size-button{
   border-radius: 50%;
@@ -116,4 +117,20 @@
     width: 250px;
     length: 193px;
     justify-content: center
+}
+.addtocart{
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  width: 200px;
+  height: 50px;
+  border: 0ch;
+}
+.addtocart:hover{
+  background-color: rgb(255, 196, 0);
+  border: 0ch;
+  color: white;
+  font-size: 14px;
+  width: 200px;
+  height: 50px;
 }

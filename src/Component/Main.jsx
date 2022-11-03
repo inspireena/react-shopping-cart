@@ -1,7 +1,6 @@
 import LeftMenu from "./LeftMenu";
 import ListItems from "./ListItems";
-import Cart from "./Cart";
-
+import img from './image1.jpg';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -15,6 +14,7 @@ function Main() {
                 // handle success
                let itemss = response.data.products.map((value,index)=>{
                 value['quantity'] = 1
+                value['image']= img
                     return value;
                 })
                 setItems(itemss)
@@ -33,7 +33,7 @@ function Main() {
                 <LeftMenu listItems={initialItems} setItems={setItems} />
             </div>
             <div>
-                <ListItems listItems={initialItems} />
+                <ListItems listItems={items} setItems={setItems}/>
             </div>
 
         </div>
