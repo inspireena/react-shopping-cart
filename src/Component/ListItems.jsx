@@ -5,20 +5,34 @@ import img from './image1.jpg';
 import Cart from "./Cart";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { setList } from '../redux/actions/listItems/listItems';
 
 function ListItems(props) {
     const [cart, setCart] = useState([])
+
+    const listItems = useSelector(state => state.listItems);
+
+    const dispatch = useDispatch()
+
     //handle over
     const handleOver = (index) => {
-        const cloneList = [...props.listItems]
-        cloneList[index].image = img2
-        props.setItems([...cloneList])
+        // const cloneList = [...props.listItems]
+        const cloneList = [...listItems];
+
+        cloneList[index].image = img2;
+        // props.setItems([...cloneList])
+        dispatch(setList([...cloneList]))
     }
     //handle out
     const handleOut = (index) => {
-        const cloneList = [...props.listItems]
+        // const cloneList = [...props.listItems]
+        const cloneList = [...listItems]
+
         cloneList[index].image = img
-        props.setItems([...cloneList])
+        // props.setItems([...cloneList])
+        dispatch(setList([...cloneList]))
+
     }
 
     const handleClick = (value) => {
@@ -36,10 +50,13 @@ function ListItems(props) {
     }
 
     return (<div className='main-list'>
+        {
+            // props.listItems && props.listItems.length > 0 &&
+            // props.listItems.map((value, index) => {
 
+            listItems && listItems.length > 0 &&
+            listItems.map((value, index) => {
 
-        {props.listItems && props.listItems.length > 0 &&
-            props.listItems.map((value, index) => {
                 return (<div key={index} className="list-item">
                     <img src={value.image} width={200} onMouseOver={() => handleOver(index)} onMouseOut={() => handleOut(index)} />
                     <div>{value.availableSizes.join(', ')}</div>
